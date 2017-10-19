@@ -1,0 +1,72 @@
+// C#
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace isPalindrome
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            /* P A L I N D R O M E
+             * 
+             * Palindromes can be read in both directions. 
+             * A palindrome has the same letters on both ends of the string. 
+             * It is a form of word puzzle.
+             * The string "civic" is a palindrome, but "perls" is not.
+             * 
+             * Create a method that checks if a string is a palindrome.
+             * 
+             */
+
+            
+
+            string[] array =
+            {
+                "civic",
+                "deified",
+                "solos",
+                "madam",
+                "radar",
+                "Dot",
+                "Not",
+                "Palindrome"
+            };
+            
+            foreach (string value in array)
+            {
+                Console.WriteLine("{0} = {1}", value, isPalindrome(value));
+            }
+        }
+
+        public static bool isPalindrome(string value)
+        {
+            int min = 0;
+            int max = value.Length - 1;
+
+            while (true)
+            {
+                if (min > max)
+                {
+                    return true;
+                }
+
+                char a = value[min];
+                char b = value[max];
+
+                if (char.ToLower(a) != char.ToLower(b))
+                {
+                    return false;
+                }
+
+                min++;
+                max--;
+            }
+        }
+
+    }
+}
